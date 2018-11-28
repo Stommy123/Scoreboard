@@ -38,12 +38,22 @@ class App extends Component {
     
   }
 
+  getHighScore = () => {
+    const scores = this.state.players.map(s => s.score)
+    const highScore = Math.max(...scores)
+    if (highScore) {
+      return highScore
+    }
+    return null
+  }
+
   render() {
     const { players } = this.state
+    const highScore = this.getHighScore()
     return (
       <div className="scoreboard">
         <Header title="Scoreboard" players={players} />
-        <Players changeScore={this.handleScoreChange} removePlayer={this.removePlayer} players={players} />
+        <Players highScore={highScore} changeScore={this.handleScoreChange} removePlayer={this.removePlayer} players={players} />
         <Form addPlayer={this.addPlayers} />
       </div>
     );
