@@ -9,7 +9,7 @@ class Form extends Component {
         }
     }
 
-    handleChange = (event) => {
+    handleChange = event => {
         let { value } = this.state
         value = event.target.value
         this.setState({ value })
@@ -17,15 +17,14 @@ class Form extends Component {
 
     ageInput = React.createRef()
 
-    handleAgeChange = (event) => {
+    handleAgeChange = event => {
         let { age } = this.state
         age = event.target.value
         this.setState({ age })
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = event => {
         event.preventDefault()
-        let { value } = this.state
         this.props.addPlayer(this.state.value, Number(this.ageInput.current.value))
         this.setState({ value: '', age: '' })
         

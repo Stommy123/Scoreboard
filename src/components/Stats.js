@@ -3,9 +3,7 @@ import PropTypes from 'prop-types'
 
 const Stats = ({ players }) => {
     const totalPlayers = players.length
-    const totalPoints = players.reduce((total, player) => {
-        return total + player.score
-    }, 0)
+    const totalPoints = players.reduce((total, player) => total + player.score, 0)
     return (
         <table className="stats">
             <tbody>

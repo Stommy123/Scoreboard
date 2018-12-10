@@ -22,7 +22,6 @@ class App extends Component {
       age: age
     })
     this.setState({ players })
-    console.log(this.state.players)
   }
 
   removePlayer = id => {
@@ -33,18 +32,14 @@ class App extends Component {
 
   handleScoreChange = (i, e) => {
     let { players } = this.state
-      players[i - 1].score += e
+      players[i].score += e
       this.setState({ players })
-    
   }
 
   getHighScore = () => {
     const scores = this.state.players.map(s => s.score)
     const highScore = Math.max(...scores)
-    if (highScore) {
-      return highScore
-    }
-    return null
+    if (highScore) return highScore
   }
 
   render() {

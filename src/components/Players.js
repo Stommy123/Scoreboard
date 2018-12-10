@@ -6,7 +6,10 @@ const Players = ({ players, changeScore, removePlayer, highScore }) => (
         {
             players.map((player, i) => {
                 return (
-                    <Player isHighScore={highScore === player.score} changeScore={changeScore} player={player} removePlayer={removePlayer} key={i} />
+                    <Player 
+                        isHighScore={highScore === player.score} 
+                        changeScore={changeScore} player={player} 
+                        removePlayer={removePlayer} key={i} />
                 )
             })
         }

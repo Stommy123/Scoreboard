@@ -9,7 +9,6 @@ const Counter = ({ changeScore, index, score}) => (
     </div>
 )
 
-
 Counter.propTypes = {
     index: PropTypes.number.isRequired,
     score: PropTypes.number.isRequired,
