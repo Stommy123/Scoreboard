@@ -8,9 +8,7 @@ import './App.css';
 class App extends Component {
 	constructor() {
 		super()
-		this.state = {
-			players: playersList,
-		}
+		this.state = { players: playersList, selected: [] }
 	}
 
 	addPlayers = (name, age) => {
@@ -42,13 +40,20 @@ class App extends Component {
 		if (highScore) return highScore
 	}
 
+	handleSelectPlayer = id => {
+		let { selected } = this.state
+		if (!selected.includes(id)) { selected.push(id) }
+		else { selected = selected.filter(i => i !== id)}
+		this.setState({ selected }) 
+	}
+
 	render() {
-		const { players } = this.state
+		const { players, selected } = this.state
 		const highScore = this.getHighScore()
 		return (
 			<div className="scoreboard">
 				<Header title="Scoreboard" players={players} />
-				<Players highScore={highScore} changeScore={this.handleScoreChange} removePlayer={this.removePlayer} players={players} />
+				<Players selected={selected} selectPlayer={this.handleSelectPlayer} highScore={highScore} changeScore={this.handleScoreChange} removePlayer={this.removePlayer} players={players} />
 				<Form addPlayer={this.addPlayers} />
 			</div>
 		);
