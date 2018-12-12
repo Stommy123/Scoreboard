@@ -3,9 +3,13 @@ import PropTypes from 'prop-types'
 
 const Counter = ({ changeScore, index, score}) => (
     <div className="counter">
-        <button onClick={() => changeScore(index, -1)} className="counter-action decrement" disabled={score === 0}> - </button>
+        <button onClick={() => changeScore(index, -1)} className="counter-action decrement" disabled={score === 0}>
+            - 
+        </button>
         <span className="counter-score">{score}</span>
-        <button onClick={() => changeScore(index, 1)} className="counter-action increment"> + </button>
+        <button onClick={() => changeScore(index, 1)} className="counter-action increment">
+            + 
+        </button>
     </div>
 )
 

@@ -7,7 +7,9 @@ const Player = ({ player, removePlayer, changeScore, isHighScore, selectPlayer, 
         <span className="player-name" onClick={() => selectPlayer(player.id) }>
             <button className="remove-player" onClick={() => removePlayer(player.id)}>✖</button>
             <Icon isHighScore={isHighScore} />
-            <span style={{color: selected.includes(player.id) ? 'red' : 'black'}} id="selected">{player.name} - {player.age}</span>
+            <span style={{ color: selected.includes(player.id) ? 'red' : 'black' }}>
+                {player.name} - {player.age}
+            </span>
         </span>
         <Counter index={player.id} changeScore={changeScore} score={player.score} />
     </div>

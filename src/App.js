@@ -24,7 +24,7 @@ class App extends Component {
 
 	removePlayer = id => {
 		let { players } = this.state 
-		players = players.filter( p => p.id !== id )
+		players = players.filter(p => p.id !== id)
 		this.setState({ players })
 	}
 
@@ -53,7 +53,13 @@ class App extends Component {
 		return (
 			<div className="scoreboard">
 				<Header title="Scoreboard" players={players} />
-				<Players selected={selected} selectPlayer={this.handleSelectPlayer} highScore={highScore} changeScore={this.handleScoreChange} removePlayer={this.removePlayer} players={players} />
+				<Players 
+					selected={selected} 
+					selectPlayer={this.handleSelectPlayer} 
+					highScore={highScore} 
+					changeScore={this.handleScoreChange} 
+					removePlayer={this.removePlayer} 
+					players={players} />
 				<Form addPlayer={this.addPlayers} />
 			</div>
 		);
