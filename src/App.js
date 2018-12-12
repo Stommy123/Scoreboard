@@ -42,8 +42,8 @@ class App extends Component {
 
 	handleSelectPlayer = id => {
 		let { selected } = this.state
-		if (!selected.includes(id)) { selected.push(id) }
-		else { selected = selected.filter(i => i !== id)}
+		if (!selected.includes(id)) selected.push(id) 
+		else selected = selected.filter(i => i !== id)
 		this.setState({ selected }) 
 	}
 
