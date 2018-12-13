@@ -1,11 +1,8 @@
-## Basic React Tutorial
-- Class Components
-- Stateless Functional Components 
-- Compositional Components 
-- State
-- Props
-- Lifting State
-- Refs
-- Forms
-- Event Handlers / Listeners 
-- PropType Validations
+## Scoreboard
+
+* React
+* Create / Delete
+* Dynamic Buttons
+* Stopwatch Counter
+* Increment Score
+
