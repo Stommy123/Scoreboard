@@ -1,48 +1,36 @@
 import React, { Component } from 'react';
 
 class Form extends Component {
-    constructor() {
-        super()
-        this.state = { value: '', age: '' }
-    }
 
-    handleChange = event => {
-        let { value } = this.state
-        value = event.target.value
-        this.setState({ value })
-    }
+    state = { name: String(), age: String() }
+
+    handleChange = field => event => this.setState({ [field]: event.target.value })
 
     ageInput = React.createRef()
 
-    handleAgeChange = event => {
-        let { age } = this.state
-        age = event.target.value
-        this.setState({ age })
-    }
-
     handleSubmit = event => {
         event.preventDefault()
-        this.props.addPlayer(this.state.value, Number(this.ageInput.current.value))
-        this.setState({ value: '', age: '' })
-        
+        const { name } = this.state
+        this.props.addPlayer(name, Number(this.ageInput.current.value))
+        this.setState({ name: String(), age: String() })  
     }
 
     render() {
-        const { value, age } = this.state
+        const { name, age } = this.state
         return (
             <form onSubmit={this.handleSubmit}>
                 <input
                     type="text"
-                    value={ value }
+                    value={ name }
                     placeholder="Enter a player's name"
-                    onChange={this.handleChange}
+                    onChange={this.handleChange('name')}
                 />
                 <input
                     type="text"
                     value={ age }
                     ref={this.ageInput}
                     placeholder="Enter a player's age"
-                    onChange={this.handleAgeChange}
+                    onChange={this.handleChange('age')}
                 />
                 <input
                     type="submit"
